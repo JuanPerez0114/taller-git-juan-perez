@@ -1,0 +1,19 @@
+name: CI basica
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar archivos
+        run: |
+          test -f index.html
+          test -f README.md
